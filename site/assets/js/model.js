@@ -7,11 +7,11 @@ export const LIMITS = { rooms: 24, beds: 24, sources: 48, options: 14, effects: 
  *  events cause an awakening, and how quickly the chance rises around it. Illustrative values in
  *  the range reported for hospital sounds; electronic alarms wake people at lower levels. */
 export const KINDS = {
-  alarm: { name: 'Equipment alarm', l50: 55, slope: 5 },
-  talk: { name: 'Voices', l50: 62, slope: 6 },
-  phone: { name: 'Phone', l50: 58, slope: 5 },
-  impact: { name: 'Bang or clatter', l50: 58, slope: 5 },
-  trolley: { name: 'Trolley or cart', l50: 62, slope: 6 },
+  alarm: { name: 'Equipment alarm', l50: 69, slope: 7 },
+  talk: { name: 'Voices', l50: 76, slope: 7 },
+  phone: { name: 'Phone', l50: 72, slope: 7 },
+  impact: { name: 'Bang or clatter', l50: 72, slope: 7 },
+  trolley: { name: 'Trolley or cart', l50: 76, slope: 7 },
 };
 
 /** Patients' needs: how much an awakening matters (weight) and how much lower their threshold
@@ -31,7 +31,7 @@ const FLOOR_ALPHA = { bay: 0.2, room: 0.15, corridor: 0.04 };
 const WALL_ALPHA = { bay: 0.1, room: 0.06, corridor: 0.05 }; // bays have curtains
 const DOOR_HEIGHT = 2.1;
 const OPEN_LOSS = 2; // dB: the open doorway itself is in the aperture formula; a little diffraction
-const CLOSED_LOSS = 25; // dB: a typical solid ward door with gaps
+const CLOSED_LOSS = 18; // dB: a ward door with ventilation gaps and a vision panel
 
 class WardError extends Error {}
 const fail = (msg) => { throw new WardError(msg); };
