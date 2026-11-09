@@ -16,7 +16,7 @@ Poor sleep in hospital slows recovery and raises the risk of delirium, and much 
 
 - **Sound to every pillow:**
   - **Inside a room:** the direct sound, every reflection off walls, floor and ceiling up to second order (image-source method, 25 paths), and the lingering echo (Sabine's diffuse field). Ceilings, curtains and furnishings absorb.
-  - **Between rooms:** sound leaves through the doorway (diffuse-field power through an opening), travels along the corridor, and enters other rooms. A closed door takes off a further 25 dB.
+  - **Between rooms:** sound leaves through the doorway (diffuse-field power through an opening), travels along the corridor, and enters other rooms. A closed door takes off a further 18 dB.
 - **Chance of waking:** each event's level at the pillow becomes a probability from an S-shaped curve. Alarms wake people more easily than voices. Patients at risk of delirium, recovering from surgery, at the end of life, or light sleepers have lower thresholds and count for more.
 - **Who sleeps where:** for any set of changes, the Hungarian algorithm finds the bed for every patient that minimises total weighted arousals. A bed move is only made if it saves at least 2 a night.
 - **The best plan in budget:** every combination of up to 14 changes is tried (tiles, door closers, soft-close bins, pagers, moving the night handover, a quieter phone), each with patients reassigned. It keeps the best plan within the budget and the whole frontier of what each extra dollar buys.
@@ -53,7 +53,7 @@ npm run serve          # http://127.0.0.1:4173/
   - In a nearly fully absorbing room, doubling the distance takes off 6 dB, and the direct level at 1 m is 11 dB below the sound power.
   - The reverberation time equals Sabine's formula.
   - Acoustic tiles help more far from a sound than near it.
-  - Closing a door lowers sound from another room by exactly its extra 23 dB (46 dB through two closed doors).
+  - Closing a door lowers sound from another room by exactly its extra 16 dB (32 dB through two closed doors).
   - The WebAssembly core matches an independent JavaScript room model to 0.01 dB.
 - **Brute force.** On 40 random wards, for every combination of changes, the bed assignment must match trying every arrangement of patients. At four budgets, the best plan must match the best of every combination evaluated directly. The frontier must be cheapest-first and strictly improving.
 - **Browser.**

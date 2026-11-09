@@ -3,7 +3,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { checkWard, compile, decodeEvaluate, decodeOptimise, roomModel, WardError, NEEDS } from '../../src/web/model.js';
+import { checkWard, compile, decodeEvaluate, decodeOptimise, roomModel, WardError, NEEDS, KINDS } from '../../src/web/model.js';
 
 const read = (p) => JSON.parse(readFileSync(new URL(p, import.meta.url), 'utf8'));
 const WARDS = { surgical: read('../../wards/surgical.json'), open: read('../../wards/open-ward.json') };
@@ -77,8 +77,8 @@ test('the core matches the JavaScript room model, and closing a door takes off i
   assert.ok(Math.abs(open.levels[0][0] - js.level) < 0.01, `${open.levels[0][0]} vs ${js.level}`);
   const shutB = decodeEvaluate(k.evaluate(1), w, c);
   const shutBoth = decodeEvaluate(k.evaluate(3), w, c);
-  assert.ok(Math.abs(open.levels[0][1] - shutB.levels[0][1] - 23) < 1e-9, 'B is 23 dB quieter with its door shut');
-  assert.ok(Math.abs(open.levels[0][1] - shutBoth.levels[0][1] - 46) < 1e-9, 'and 46 dB with both doors shut');
+  assert.ok(Math.abs(open.levels[0][1] - shutB.levels[0][1] - 16) < 1e-9, 'B is 16 dB quieter with its door shut');
+  assert.ok(Math.abs(open.levels[0][1] - shutBoth.levels[0][1] - 32) < 1e-9, 'and 32 dB with both doors shut');
   assert.equal(shutB.levels[0][0], open.levels[0][0], 'the bed in the same room is unchanged');
 });
 
@@ -143,7 +143,7 @@ test('bed assignment and the budget search match brute force', async () => {
       const ev = decodeEvaluate(k.evaluate(m), w, c);
       // wakes of patient p in bed b: unweighted levels -> recompute from levels with the same curve
       const wake = (p, b) => w.sources.reduce((s, src, si) => {
-        const kd = { alarm: [55, 5], talk: [62, 6], phone: [58, 5], impact: [58, 5], trolley: [62, 6] }[src.kind];
+        const kd = [KINDS[src.kind].l50, KINDS[src.kind].slope];
         return s + src.perNight / (1 + Math.exp(-(ev.levels[si][b] - (kd[0] - NEEDS[w.patients[p].needs].shift)) / kd[1]));
       }, 0);
       const P = w.patients.length;

@@ -16,10 +16,10 @@
   </ul>
 
   <h2>3. Between rooms</h2>
-  <p>Sound leaves a room through its doorway. The power passing through an opening in an evenly filled room is the level there less 6 dB plus ten times the log of the opening's area. That power then travels along the corridor to another room's doorway, and into that room. A closed door takes off a further 25 dB, typical of a solid ward door with gaps around it. Sound through walls is ignored: in most wards the doorways let through far more.</p>
+  <p>Sound leaves a room through its doorway. The power passing through an opening in an evenly filled room is the level there less 6 dB plus ten times the log of the opening's area. That power then travels along the corridor to another room's doorway, and into that room. A closed door takes off a further 18 dB, typical of a ward door with ventilation gaps and a vision panel. Sound through walls is ignored: in most wards the doorways let through far more.</p>
 
   <h2>4. Waking</h2>
-  <p>Each event's level at a pillow becomes a chance of waking from an S-shaped curve. The curve has a level at which half of such events wake someone, and a spread. Electronic alarms wake people at lower levels than voices (Buxton et al., 2012). Patients who wake more easily (after surgery, at risk of delirium, at the end of life, light sleepers) have the curve moved a few decibels lower. Their arousals are also weighted by how much an awakening matters, which is a clinical priority to set, not a measurement. The expected number of arousals in a night is the sum over every event.</p>
+  <p>Each event's level at a pillow becomes a chance of waking from an S-shaped curve. The curve has a level at which half of such events wake someone, and a spread. Electronic alarms wake people at lower levels than voices (Buxton et al., 2012). The curves are set so that an alarm peaking at about 55 dB at the pillow wakes roughly one sleeper in eight and a voice about one in twenty, in the range field studies of noise and sleep report, and an ordinary patient on the example wards is woken around seven times a night. Patients who wake more easily (after surgery, at risk of delirium, at the end of life, light sleepers) have the curve moved a few decibels lower. Their arousals are also weighted by how much an awakening matters, which is a clinical priority to set, not a measurement. The expected number of arousals in a night is the sum over every event.</p>
   <p>The curve's numbers are illustrative values chosen to sit within the published range for hospital sounds. Hushward is for comparing options; it doesn't predict any one patient's night.</p>
 
   <h2>5. Who sleeps where: the Hungarian algorithm</h2>
@@ -30,7 +30,7 @@
 
   <h2>How it's tested</h2>
   <ul>
-    <li><strong>Physics with known answers.</strong> In a nearly fully absorbing room, doubling the distance lowers the level by 6 dB. The reverberation time matches Sabine's formula. Closing a door lowers every sound from another room by exactly its 23 dB of extra loss. The core's WebAssembly room model matches an independent JavaScript version to a hundredth of a decibel.</li>
+    <li><strong>Physics with known answers.</strong> In a nearly fully absorbing room, doubling the distance lowers the level by 6 dB. The reverberation time matches Sabine's formula. Closing a door lowers every sound from another room by exactly its 16 dB of extra loss. The core's WebAssembly room model matches an independent JavaScript version to a hundredth of a decibel.</li>
     <li><strong>Against brute force.</strong> On random small wards, the bed assignment matches trying every possible arrangement of patients, and the best plan matches trying every combination of changes by evaluating each one directly.</li>
     <li><strong>The website.</strong> Every page is checked in a real browser at phone, tablet and desktop sizes for errors, sideways scrolling and overlapping text. Hostile ward files are loaded on purpose.</li>
   </ul>
