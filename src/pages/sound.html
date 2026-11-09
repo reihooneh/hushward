@@ -1,0 +1,52 @@
+<!--{"title":"How sound travels · Hushward","description":"Drag a sound and a sleeper around a room: see the direct sound, the reflections off walls, floor and ceiling, and the lingering echo, and how an acoustic ceiling changes them.","nav":"sound","script":"sound.js"}-->
+<div class="wrap">
+  <h1>How sound travels in a room</h1>
+  <p class="lede muted narrow">A sound reaches a sleeping patient three ways: straight across the room, bounced off a wall, the floor or the ceiling, and as the echo that lingers after many bounces. Move the sound and the bed, and change the room, to see which matters where.</p>
+
+  <div class="explain">
+    <div class="card">
+      <div class="two">
+        <div class="field"><label for="x-len">Room length: <span id="x-len-v"></span></label><input id="x-len" type="range" min="3" max="20" step="0.5" value="9"></div>
+        <div class="field"><label for="x-wid">Room width: <span id="x-wid-v"></span></label><input id="x-wid" type="range" min="3" max="12" step="0.5" value="9"></div>
+      </div>
+      <div class="field"><label for="x-height">Ceiling height: <span id="x-height-v"></span></label><input id="x-height" type="range" min="2.4" max="4.5" step="0.1" value="2.7"></div>
+      <div class="field">
+        <label for="x-ceiling">Ceiling</label>
+        <select id="x-ceiling"><option value="hard">Plasterboard (absorbs 5%)</option><option value="acoustic">Acoustic tiles (absorb 70%)</option></select>
+      </div>
+      <div class="field">
+        <label for="x-kind">The sound</label>
+        <select id="x-kind"></select>
+      </div>
+      <div class="field"><label for="x-level">How loud at the source (sound power): <span id="x-level-v"></span></label><input id="x-level" type="range" min="55" max="95" step="1" value="72"></div>
+      <p class="note">Drag the sound (circle) and the pillow (square) on the plan, or move the pillow with these:</p>
+      <div class="two">
+        <div class="field"><label for="x-px">Pillow across: <span id="x-px-v"></span></label><input id="x-px" type="range" min="0" max="1" step="0.01" value="0.85"></div>
+        <div class="field"><label for="x-py">Pillow down: <span id="x-py-v"></span></label><input id="x-py" type="range" min="0" max="1" step="0.01" value="0.3"></div>
+      </div>
+    </div>
+    <div class="figure">
+      <canvas id="x-plan" role="img" aria-label="The room from above, with mirror-image copies of the sound for each reflection and the paths they take to the pillow"></canvas>
+    </div>
+  </div>
+
+  <section aria-labelledby="parts-title">
+    <h2 id="parts-title">At the pillow</h2>
+    <div class="stats">
+      <div class="stat"><b id="r-total">…</b>total level at the pillow (dBA)</div>
+      <div class="stat"><b id="r-direct">…</b>straight across the room</div>
+      <div class="stat"><b id="r-early">…</b>after one or two bounces</div>
+      <div class="stat"><b id="r-reverb">…</b>the lingering echo; the room's reverberation time is <span id="r-rt">…</span></div>
+    </div>
+    <p class="bigline" id="r-wake"></p>
+  </section>
+
+  <section aria-labelledby="dist-title">
+    <h2 id="dist-title">Level with distance, hard ceiling against acoustic tiles</h2>
+    <div class="figure chart-wrap">
+      <svg id="x-chart" viewBox="0 0 720 340" role="img" aria-labelledby="dist-title dist-desc"><desc id="dist-desc">Two lines: the sound level at increasing distance from the source along the room, with a hard ceiling and with acoustic tiles. Close up they match; further away the tiles keep the level lower.</desc></svg>
+    </div>
+    <ul class="legend" id="x-legend"></ul>
+    <p class="note">Close to the source the direct sound dominates and the ceiling hardly matters. Further away, the echo takes over, and that's what absorption reduces.</p>
+  </section>
+</div>

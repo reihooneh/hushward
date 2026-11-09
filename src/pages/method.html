@@ -1,0 +1,53 @@
+<!--{"title":"How it works · Hushward","description":"Image sources, reverberation, doorways, a model of waking, the Hungarian algorithm and an exhaustive budget search: how Hushward plans a quieter ward, how it is tested, and where its estimates stop.","nav":"method","script":"method.js"}-->
+<div class="wrap narrow prose">
+  <h1>How it works</h1>
+  <p class="lede muted">Hushward answers two questions: how often is each patient woken tonight, and what is the best thing to change, within a budget? Here is how, what it's tested against, and where its numbers are only estimates.</p>
+
+  <h2>1. The ward</h2>
+  <p>A ward is a set of rectangular rooms (bays, single rooms, a sluice, a kitchen) off one corridor, each with a doorway. Every room has a floor, walls and ceiling that absorb part of the sound that hits them. Bays absorb more than bare rooms because of curtains, beds and people. A plasterboard ceiling absorbs about 5%, acoustic tiles about 70%.</p>
+  <p>Night-time sounds are points with a sound power (how loud they are at the source) and a number of events a night: an alarm at a bed, talk at the station, the phone, bin lids, the sluice.</p>
+
+  <h2>2. Sound within a room</h2>
+  <p>A sound reaches a listener in three ways, and the model adds their energy:</p>
+  <ul>
+    <li><strong>Direct:</strong> it spreads over a sphere, so its energy falls with the square of the distance (6 dB for every doubling).</li>
+    <li><strong>Early reflections:</strong> the <em>image-source method</em> mirrors the sound in each wall, the floor and the ceiling. A reflection behaves like a sound coming from that mirror image, weakened by what the surface absorbed. Hushward includes every path with up to two reflections: 25 paths in all, counting the direct one.</li>
+    <li><strong>The lingering echo:</strong> energy that has bounced three or more times fills the room evenly. Its level follows from the room's total absorption, as in Sabine's classic reverberation theory, which also gives the reverberation time.</li>
+  </ul>
+
+  <h2>3. Between rooms</h2>
+  <p>Sound leaves a room through its doorway. The power passing through an opening in an evenly filled room is the level there less 6 dB plus ten times the log of the opening's area. That power then travels along the corridor to another room's doorway, and into that room. A closed door takes off a further 25 dB, typical of a solid ward door with gaps around it. Sound through walls is ignored: in most wards the doorways let through far more.</p>
+
+  <h2>4. Waking</h2>
+  <p>Each event's level at a pillow becomes a chance of waking from an S-shaped curve. The curve has a level at which half of such events wake someone, and a spread. Electronic alarms wake people at lower levels than voices (Buxton et al., 2012). Patients who wake more easily (after surgery, at risk of delirium, at the end of life, light sleepers) have the curve moved a few decibels lower. Their arousals are also weighted by how much an awakening matters, which is a clinical priority to set, not a measurement. The expected number of arousals in a night is the sum over every event.</p>
+  <p>The curve's numbers are illustrative values chosen to sit within the published range for hospital sounds. Hushward is for comparing options; it doesn't predict any one patient's night.</p>
+
+  <h2>5. Who sleeps where: the Hungarian algorithm</h2>
+  <p>Given the changes, each patient would have some number of weighted arousals in each bed. Choosing which patient goes in which bed to make the total smallest is the <em>assignment problem</em>, solved exactly in O(n³) time by the Hungarian algorithm. Empty beds are padded in as patients who don't count.</p>
+
+  <h2>6. The best plan: every combination</h2>
+  <p>Changes interact. Tiles in a bay matter less once its door is closed, and moving the handover matters less once bin lids are soft. So Hushward doesn't add up their separate effects. It tries every combination of the changes allowed (up to 14 of them, skipping combinations that pick two alternatives from the same choice), recomputes every sound at every bed, and re-solves the bed assignment for each. It keeps the best combination within the budget. It also keeps the <em>Pareto frontier</em>: every combination that does better than all cheaper ones, which is the chart of what each extra dollar buys.</p>
+
+  <h2>How it's tested</h2>
+  <ul>
+    <li><strong>Physics with known answers.</strong> In a nearly fully absorbing room, doubling the distance lowers the level by 6 dB. The reverberation time matches Sabine's formula. Closing a door lowers every sound from another room by exactly its 23 dB of extra loss. The core's WebAssembly room model matches an independent JavaScript version to a hundredth of a decibel.</li>
+    <li><strong>Against brute force.</strong> On random small wards, the bed assignment matches trying every possible arrangement of patients, and the best plan matches trying every combination of changes by evaluating each one directly.</li>
+    <li><strong>The website.</strong> Every page is checked in a real browser at phone, tablet and desktop sizes for errors, sideways scrolling and overlapping text. Hostile ward files are loaded on purpose.</li>
+  </ul>
+
+  <h2>Where to be careful</h2>
+  <ul>
+    <li>Rooms are treated as boxes with evenly absorbing surfaces. Furniture and curtains are folded into the floor's absorption. Sound through walls, ducts and ceiling voids isn't modelled.</li>
+    <li>The waking curve, the event counts and the sound powers are estimates. Measure a real ward (a sound level meter at the pillow, and a log of night-time events) before acting.</li>
+    <li>Bed moves are only about noise. Patients who must be watched closely, isolation, and equipment come first.</li>
+    <li>Prices are rough figures for comparing options.</li>
+  </ul>
+
+  <h2>References</h2>
+  <ul>
+    <li>O. M. Buxton, J. M. Ellenbogen, W. Wang, et al. (2012). Sleep disruption due to hospital noises: a prospective evaluation. <em>Annals of Internal Medicine</em> 157(3).</li>
+    <li>J. B. Allen and D. A. Berkley (1979). Image method for efficiently simulating small-room acoustics. <em>Journal of the Acoustical Society of America</em> 65(4).</li>
+    <li>W. C. Sabine (1922). <em>Collected Papers on Acoustics</em>. Harvard University Press.</li>
+    <li>H. W. Kuhn (1955). The Hungarian method for the assignment problem. <em>Naval Research Logistics Quarterly</em> 2.</li>
+  </ul>
+</div>

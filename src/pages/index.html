@@ -1,0 +1,62 @@
+<!--{"title":"Hushward · quieter hospital nights, planned","description":"Hushward models how night-time sounds travel through a hospital ward, estimates how often each patient is woken, and finds the changes and bed moves that protect sleep most for the money.","nav":"index","script":"home.js"}-->
+<div class="wrap">
+  <div class="hero">
+    <div>
+      <p class="eyebrow">Sleep is part of recovery</p>
+      <h1>Quieter hospital nights, planned</h1>
+      <p class="lede">Patients in hospital are woken again and again at night by alarms, phones, voices and bin lids. Hushward follows every one of those sounds through the ward to every bed, estimates how often each patient is woken, and finds the mix of changes and bed moves that protects the most sleep for the money.</p>
+      <div class="actions">
+        <a class="button" href="planner.html">Plan a quiet night</a>
+        <a class="button ghost" href="sound.html">How sound travels</a>
+      </div>
+    </div>
+    <div class="stage" id="hero-stage">
+      <canvas id="hero" role="img" aria-label="A surgical ward at night in 3D: beds glow by how often their patient is woken, and sounds pulse where they start"></canvas>
+      <div class="stage-caption" aria-hidden="true">
+        <span class="chip turn">Surgical ward 7B, today</span>
+        <span class="chip fix" id="cap">Planning…</span>
+      </div>
+    </div>
+  </div>
+
+  <section aria-labelledby="numbers">
+    <h2 id="numbers">The example ward, worked out in your browser just now</h2>
+    <div class="stats">
+      <div class="stat"><b id="s-today">…</b>weighted arousals a night today, across <span id="s-patients">…</span> patients</div>
+      <div class="stat"><b id="s-free">…</b>fewer with only the free changes and bed moves</div>
+      <div class="stat"><b id="s-plan">…</b>fewer for <span id="s-cost">…</span>, the best plan within a $10,000 budget</div>
+      <div class="stat"><b id="s-time">…</b>to compare every combination of changes and every bed for every patient</div>
+    </div>
+  </section>
+
+  <section aria-labelledby="story">
+    <h2 id="story">What usually helps most isn't what costs most</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Doors beat ceilings</h3>
+        <p>A closed door stops far more sound than acoustic tiles soak up. Tiles still matter in big hard rooms, where the sound lingers, but they're the expensive way to help a bay off a busy corridor.</p>
+      </div>
+      <div class="card">
+        <h3>Who sleeps where</h3>
+        <p>Beds near the station, the sluice or the bins get the loudest nights. Moving the patients who most need sleep to the quietest beds costs nothing, and the planner finds the best arrangement exactly.</p>
+      </div>
+      <div class="card">
+        <h3>Free fixes first</h3>
+        <p>Moving the night handover, turning the phone down and closing doors cost little or nothing. The chart of what each extra dollar buys shows where spending starts to pay.</p>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="how">
+    <h2 id="how">How it works it out</h2>
+    <ol class="steps">
+      <li><h3>Sound to every bed</h3><p>Each sound is followed through its room (the direct path, reflections off walls, floor and ceiling, and the lingering echo), out through doorways and along the corridor to every bed.</p></li>
+      <li><h3>Chance of waking</h3><p>The level at each pillow becomes a chance of waking for that kind of sound, lower for patients who are more easily woken, and adds up over the night.</p></li>
+      <li><h3>The best plan</h3><p>Every combination of changes is tried, each with the best placing of patients in beds, and the best within your budget is kept, along with the cheapest route to every level of quiet.</p></li>
+    </ol>
+  </section>
+
+  <section class="narrow">
+    <p class="quote">The wards and patients here are invented, and the sleep model is an estimate for comparing options. Measure a real ward's sound before changing it, and keep clinical needs, like patients who must be watched closely, first.</p>
+  </section>
+</div>
