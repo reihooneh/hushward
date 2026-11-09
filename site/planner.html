@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; worker-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'none'">
+  <meta name="referrer" content="no-referrer">
+  <title>Plan a quiet night · Hushward</title>
+  <meta name="description" content="Pick a ward and a budget: Hushward models every night-time sound reaching every bed, estimates how often each patient is woken, and finds the changes and bed moves that protect sleep most for the money.">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/public-sans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="module" src="assets/js/planner.js"></script>
+</head>
+<body class="page-planner">
+  <a class="skip" href="#main">Skip to the content</a>
+  <header class="top">
+    <div class="top-inner">
+      <a class="mark" href="index.html" aria-label="Hushward home">
+        <svg class="mark-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M20 5a11 11 0 1 0 7 16 9 9 0 0 1-7-16z"/><path d="M8 25c2-1.4 3-1.4 5 0s3 1.4 5 0"/></svg>
+        <span>Hushward</span>
+      </a>
+      <nav class="nav" aria-label="Pages">
+        <a href="index.html">Home</a>
+        <a href="planner.html" aria-current="page">Plan a quiet night</a>
+        <a href="sound.html">How sound travels</a>
+        <a href="method.html">How it works</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main">
+<div class="wrap">
+  <h1>Plan a quiet night</h1>
+  <p class="lede muted narrow">Choose a ward and a budget. Hushward works out how loud every night-time sound is at every bed, estimates how often each patient is woken, then tries every combination of the changes you'd consider, and every way of placing patients, to find what protects sleep most for the money.</p>
+  <div class="tool">
+    <div class="panel">
+      <div class="card">
+        <div class="field">
+          <label for="ward">Ward</label>
+          <select id="ward">
+            <option value="surgical">Surgical ward 7B</option>
+            <option value="open-ward">Older persons' ward</option>
+            <option value="custom" hidden>Your ward</option>
+          </select>
+        </div>
+        <p class="note" id="summary"></p>
+        <div class="row">
+          <button class="ghost small" id="load" type="button">Load a ward (JSON)</button>
+          <button class="ghost small" id="save" type="button">Download this ward</button>
+          <input type="file" id="file" accept=".json,application/json" hidden>
+        </div>
+        <p class="error" id="load-error" role="alert" hidden></p>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label for="budget">Budget: <span id="budget-v"></span></label>
+          <input id="budget" type="range" min="0" max="45000" step="500" value="10000">
+        </div>
+        <label class="check" for="reassign"><input id="reassign" type="checkbox" checked><span>Let patients move beds when it saves at least 2 weighted arousals a night</span></label>
+      </div>
+
+      <div class="card" aria-live="polite">
+        <h2 class="h-card">The best plan in budget</h2>
+        <p class="bigline" id="headline">…</p>
+        <div class="plan-total" id="total">…</div>
+        <ul class="plan-list" id="plan"></ul>
+        <p class="note" id="moves"></p>
+      </div>
+
+      <div class="card">
+        <h2 class="h-card">What each extra dollar buys</h2>
+        <div class="chart"><svg id="frontier" viewBox="0 0 420 260" role="img" aria-labelledby="frontier-title"><title id="frontier-title">The cheapest way to reach each level of disruption: cost across, weighted arousals a night up the side</title></svg></div>
+        <p class="note">Each step is a better plan than every cheaper one. The amber line is your budget.</p>
+      </div>
+
+      <div class="card">
+        <h2 class="h-card">Changes you'd consider</h2>
+        <p class="note">Untick anything you wouldn't do. Prices are rough, for comparing options.</p>
+        <div class="mods" id="mods"></div>
+      </div>
+    </div>
+
+    <div class="viewer">
+      <div class="viewbar">
+        <div class="seg" role="group" aria-label="Show the ward">
+          <button type="button" id="v-today" aria-pressed="false">Today</button>
+          <button type="button" id="v-plan" aria-pressed="true">With the plan</button>
+        </div>
+        <div class="seg" role="group" aria-label="View">
+          <button type="button" id="v-3d" aria-pressed="true">3D</button>
+          <button type="button" id="v-2d" aria-pressed="false">Floor plan</button>
+        </div>
+      </div>
+      <div class="stage view3d" id="stage"><canvas id="c3d" role="img" aria-label="The ward at night in 3D: beds glow by how often their patient is woken, sounds pulse where they start"></canvas></div>
+      <div class="plan2d" id="plan2d" hidden><canvas id="c2d" role="img" aria-label="Floor plan of the ward, coloured by how disruptive each spot is for someone asleep there"></canvas></div>
+      <div>
+        <div class="legend-bar" aria-hidden="true"></div>
+        <div class="legend-scale"><span>Quiet</span><span id="scale-max"></span></div>
+      </div>
+      <div class="legend">
+        <span><i class="sw-loud"></i>Beds and floor: arousals a night for someone asleep there</span>
+        <span><i class="sw-src"></i>Sounds</span>
+        <span><i class="sw-mid"></i>Closed door</span>
+      </div>
+      <p class="status" id="status" aria-live="polite"></p>
+      <div class="card">
+        <h2 class="h-card">Patients</h2>
+        <table class="patients">
+          <thead><tr><th scope="col">Patient</th><th scope="col">Needs</th><th scope="col">Today</th><th scope="col">With the plan</th></tr></thead>
+          <tbody id="patients"></tbody>
+        </table>
+        <p class="note">Arousals a night, estimated. Bed moves only change who sleeps where, not the clinical reasons a patient may need to be near the station.</p>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+  <footer class="foot">
+    <div class="foot-inner">
+      <p>Hushward is open source (MIT). It runs entirely in your browser: no sign-in, no tracking, and ward plans you load never leave your device. It uses invented example wards and patients, and its sleep model is an estimate for comparing options: measure a real ward before changing it.</p>
+      <p><a href="https://github.com/reihooneh/hushward">Source code and tests on GitHub</a></p>
+    </div>
+  </footer>
+</body>
+</html>

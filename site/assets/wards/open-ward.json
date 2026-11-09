@@ -1,0 +1,482 @@
+{
+ "name": "Older persons' ward",
+ "summary": "A long open ward of twelve beds with a high hard ceiling and the station in the middle, off a short corridor with a sluice and a day room.",
+ "rooms": [
+  {
+   "id": "corridor",
+   "name": "Corridor",
+   "rect": [
+    0,
+    8,
+    30,
+    10
+   ],
+   "height": 3.2,
+   "ceiling": "hard",
+   "kind": "corridor"
+  },
+  {
+   "id": "ward",
+   "name": "Open ward",
+   "rect": [
+    0,
+    0,
+    30,
+    8
+   ],
+   "height": 3.8,
+   "ceiling": "hard",
+   "kind": "bay",
+   "door": [
+    2,
+    8
+   ],
+   "doorWidth": 1.8
+  },
+  {
+   "id": "day",
+   "name": "Day room",
+   "rect": [
+    22,
+    10,
+    30,
+    15
+   ],
+   "height": 3.2,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    24,
+    10
+   ],
+   "doorWidth": 1.2
+  },
+  {
+   "id": "sluice",
+   "name": "Sluice room",
+   "rect": [
+    16,
+    10,
+    22,
+    15
+   ],
+   "height": 3.2,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    17,
+    10
+   ],
+   "doorWidth": 1.1
+  }
+ ],
+ "beds": [
+  {
+   "id": "n1",
+   "room": "ward",
+   "at": [
+    3.0,
+    1.2
+   ]
+  },
+  {
+   "id": "s1",
+   "room": "ward",
+   "at": [
+    3.0,
+    6.8
+   ]
+  },
+  {
+   "id": "n2",
+   "room": "ward",
+   "at": [
+    7.4,
+    1.2
+   ]
+  },
+  {
+   "id": "s2",
+   "room": "ward",
+   "at": [
+    7.4,
+    6.8
+   ]
+  },
+  {
+   "id": "n3",
+   "room": "ward",
+   "at": [
+    11.8,
+    1.2
+   ]
+  },
+  {
+   "id": "s3",
+   "room": "ward",
+   "at": [
+    11.8,
+    6.8
+   ]
+  },
+  {
+   "id": "n4",
+   "room": "ward",
+   "at": [
+    16.200000000000003,
+    1.2
+   ]
+  },
+  {
+   "id": "s4",
+   "room": "ward",
+   "at": [
+    16.200000000000003,
+    6.8
+   ]
+  },
+  {
+   "id": "n5",
+   "room": "ward",
+   "at": [
+    20.6,
+    1.2
+   ]
+  },
+  {
+   "id": "s5",
+   "room": "ward",
+   "at": [
+    20.6,
+    6.8
+   ]
+  },
+  {
+   "id": "n6",
+   "room": "ward",
+   "at": [
+    25.0,
+    1.2
+   ]
+  },
+  {
+   "id": "s6",
+   "room": "ward",
+   "at": [
+    25.0,
+    6.8
+   ]
+  }
+ ],
+ "patients": [
+  {
+   "name": "Mrs Fraser",
+   "needs": "delirium",
+   "bed": "n1"
+  },
+  {
+   "name": "Mr Rossi",
+   "needs": "general",
+   "bed": "s1"
+  },
+  {
+   "name": "Mrs Abebe",
+   "needs": "delirium",
+   "bed": "n2"
+  },
+  {
+   "name": "Mr Kim",
+   "needs": "light",
+   "bed": "s2"
+  },
+  {
+   "name": "Mrs Murphy",
+   "needs": "postop",
+   "bed": "n3"
+  },
+  {
+   "name": "Mr Dubois",
+   "needs": "general",
+   "bed": "s3"
+  },
+  {
+   "name": "Mrs Singh",
+   "needs": "palliative",
+   "bed": "n4"
+  },
+  {
+   "name": "Mr Yamamoto",
+   "needs": "delirium",
+   "bed": "s4"
+  },
+  {
+   "name": "Mrs Clarke",
+   "needs": "general",
+   "bed": "n5"
+  },
+  {
+   "name": "Mr Hassan",
+   "needs": "light",
+   "bed": "s5"
+  },
+  {
+   "name": "Mrs Novak",
+   "needs": "general",
+   "bed": "n6"
+  },
+  {
+   "name": "Mr Evans",
+   "needs": "postop",
+   "bed": "s6"
+  }
+ ],
+ "sources": [
+  {
+   "id": "station-talk",
+   "name": "Talk at the ward station",
+   "kind": "talk",
+   "room": "ward",
+   "at": [
+    15,
+    4
+   ],
+   "level": 64,
+   "perNight": 16
+  },
+  {
+   "id": "station-phone",
+   "name": "Ward phone",
+   "kind": "phone",
+   "room": "ward",
+   "at": [
+    15.5,
+    4
+   ],
+   "level": 74,
+   "perNight": 4
+  },
+  {
+   "id": "call-bell",
+   "name": "Call bell annunciator",
+   "kind": "alarm",
+   "room": "ward",
+   "at": [
+    14.5,
+    4.2
+   ],
+   "level": 72,
+   "perNight": 12
+  },
+  {
+   "id": "bins",
+   "name": "Bin lids",
+   "kind": "impact",
+   "room": "ward",
+   "at": [
+    9,
+    4
+   ],
+   "level": 82,
+   "perNight": 8
+  },
+  {
+   "id": "sluice-clatter",
+   "name": "Sluice: pans and machine",
+   "kind": "impact",
+   "room": "sluice",
+   "at": [
+    19,
+    13
+   ],
+   "level": 86,
+   "perNight": 5
+  },
+  {
+   "id": "tv",
+   "name": "Late television in the day room",
+   "kind": "talk",
+   "room": "day",
+   "at": [
+    28,
+    14
+   ],
+   "level": 68,
+   "perNight": 1
+  },
+  {
+   "id": "wandering",
+   "name": "Calling out (a restless patient)",
+   "kind": "talk",
+   "bed": "n1",
+   "level": 70,
+   "perNight": 2
+  },
+  {
+   "id": "pump-n3",
+   "name": "Pump alarm, bed N3",
+   "kind": "alarm",
+   "bed": "n3",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-s1",
+   "name": "Pump alarm, bed S1",
+   "kind": "alarm",
+   "bed": "s1",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-s6",
+   "name": "Pump alarm, bed S6",
+   "kind": "alarm",
+   "bed": "s6",
+   "level": 72,
+   "perNight": 2
+  }
+ ],
+ "options": [
+  {
+   "id": "tiles-ward",
+   "name": "Acoustic ceiling over the open ward",
+   "cost": 18000,
+   "effects": [
+    {
+     "ceiling": "ward"
+    }
+   ]
+  },
+  {
+   "id": "tiles-corridor",
+   "name": "Acoustic ceiling in the corridor",
+   "cost": 5000,
+   "effects": [
+    {
+     "ceiling": "corridor"
+    }
+   ]
+  },
+  {
+   "id": "ward-door",
+   "name": "Close the ward doors at night",
+   "cost": 1200,
+   "effects": [
+    {
+     "close": "ward"
+    }
+   ]
+  },
+  {
+   "id": "sluice-door",
+   "name": "Self-closing sluice door",
+   "cost": 900,
+   "effects": [
+    {
+     "close": "sluice"
+    }
+   ]
+  },
+  {
+   "id": "day-door",
+   "name": "Close the day room at 10 pm",
+   "cost": 0,
+   "effects": [
+    {
+     "close": "day"
+    }
+   ]
+  },
+  {
+   "id": "soft-bins",
+   "name": "Soft-close bin lids",
+   "cost": 600,
+   "effects": [
+    {
+     "quieter": "bins",
+     "by": 15
+    }
+   ]
+  },
+  {
+   "id": "pagers",
+   "name": "Alarms and call bells to nurses' pagers",
+   "cost": 9000,
+   "effects": [
+    {
+     "quieterKind": "alarm",
+     "by": 15
+    }
+   ]
+  },
+  {
+   "id": "quiet-phone",
+   "name": "Phone on light and low ring at night",
+   "cost": 0,
+   "effects": [
+    {
+     "quieter": "station-phone",
+     "by": 20
+    }
+   ]
+  },
+  {
+   "id": "station-end",
+   "name": "Night station at the far end of the ward",
+   "cost": 2500,
+   "group": "station",
+   "effects": [
+    {
+     "move": "station-talk",
+     "to": [
+      29,
+      4
+     ]
+    },
+    {
+     "move": "station-phone",
+     "to": [
+      29.4,
+      4
+     ]
+    },
+    {
+     "move": "call-bell",
+     "to": [
+      28.6,
+      4.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "station-door",
+   "name": "Night station by the ward door",
+   "cost": 2500,
+   "group": "station",
+   "effects": [
+    {
+     "move": "station-talk",
+     "to": [
+      2,
+      6.8
+     ]
+    },
+    {
+     "move": "station-phone",
+     "to": [
+      2.4,
+      6.6
+     ]
+    },
+    {
+     "move": "call-bell",
+     "to": [
+      1.6,
+      6.6
+     ]
+    }
+   ]
+  }
+ ]
+}
