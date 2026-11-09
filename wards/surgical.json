@@ -1,0 +1,790 @@
+{
+ "name": "Surgical ward 7B",
+ "summary": "Three four-bed bays and six single rooms off one corridor, with the nurses' station in the middle, a sluice and a kitchen. Hard ceilings throughout.",
+ "rooms": [
+  {
+   "id": "corridor",
+   "name": "Corridor",
+   "rect": [
+    0,
+    9,
+    36,
+    11.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "corridor"
+  },
+  {
+   "id": "bay-a",
+   "name": "Bay A",
+   "rect": [
+    0,
+    0,
+    9,
+    9
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "bay",
+   "door": [
+    4.5,
+    9
+   ],
+   "doorWidth": 1.4
+  },
+  {
+   "id": "bay-b",
+   "name": "Bay B",
+   "rect": [
+    9,
+    0,
+    18,
+    9
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "bay",
+   "door": [
+    13.5,
+    9
+   ],
+   "doorWidth": 1.4
+  },
+  {
+   "id": "bay-c",
+   "name": "Bay C",
+   "rect": [
+    18,
+    0,
+    27,
+    9
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "bay",
+   "door": [
+    22.5,
+    9
+   ],
+   "doorWidth": 1.4
+  },
+  {
+   "id": "single-1",
+   "name": "Single room 1",
+   "rect": [
+    0,
+    11.4,
+    4,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    1,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "single-2",
+   "name": "Single room 2",
+   "rect": [
+    4,
+    11.4,
+    8,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    5,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "single-3",
+   "name": "Single room 3",
+   "rect": [
+    8,
+    11.4,
+    12,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    9,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "single-4",
+   "name": "Single room 4",
+   "rect": [
+    12,
+    11.4,
+    16,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    13,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "single-5",
+   "name": "Single room 5",
+   "rect": [
+    16,
+    11.4,
+    20,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    17,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "single-6",
+   "name": "Single room 6",
+   "rect": [
+    20,
+    11.4,
+    24,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    21,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "sluice",
+   "name": "Sluice room",
+   "rect": [
+    24,
+    11.4,
+    30,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    25,
+    11.4
+   ],
+   "doorWidth": 1.1
+  },
+  {
+   "id": "kitchen",
+   "name": "Ward kitchen",
+   "rect": [
+    30,
+    11.4,
+    36,
+    16.4
+   ],
+   "height": 2.7,
+   "ceiling": "hard",
+   "kind": "room",
+   "door": [
+    31,
+    11.4
+   ],
+   "doorWidth": 1.1
+  }
+ ],
+ "beds": [
+  {
+   "id": "a1",
+   "room": "bay-a",
+   "at": [
+    1.2,
+    2.5
+   ]
+  },
+  {
+   "id": "a2",
+   "room": "bay-a",
+   "at": [
+    1.2,
+    6.5
+   ]
+  },
+  {
+   "id": "a3",
+   "room": "bay-a",
+   "at": [
+    7.8,
+    2.5
+   ]
+  },
+  {
+   "id": "a4",
+   "room": "bay-a",
+   "at": [
+    7.8,
+    6.5
+   ]
+  },
+  {
+   "id": "b1",
+   "room": "bay-b",
+   "at": [
+    10.2,
+    2.5
+   ]
+  },
+  {
+   "id": "b2",
+   "room": "bay-b",
+   "at": [
+    10.2,
+    6.5
+   ]
+  },
+  {
+   "id": "b3",
+   "room": "bay-b",
+   "at": [
+    16.8,
+    2.5
+   ]
+  },
+  {
+   "id": "b4",
+   "room": "bay-b",
+   "at": [
+    16.8,
+    6.5
+   ]
+  },
+  {
+   "id": "c1",
+   "room": "bay-c",
+   "at": [
+    19.2,
+    2.5
+   ]
+  },
+  {
+   "id": "c2",
+   "room": "bay-c",
+   "at": [
+    19.2,
+    6.5
+   ]
+  },
+  {
+   "id": "c3",
+   "room": "bay-c",
+   "at": [
+    25.8,
+    2.5
+   ]
+  },
+  {
+   "id": "c4",
+   "room": "bay-c",
+   "at": [
+    25.8,
+    6.5
+   ]
+  },
+  {
+   "id": "s1",
+   "room": "single-1",
+   "at": [
+    2.6,
+    15.2
+   ]
+  },
+  {
+   "id": "s2",
+   "room": "single-2",
+   "at": [
+    6.6,
+    15.2
+   ]
+  },
+  {
+   "id": "s3",
+   "room": "single-3",
+   "at": [
+    10.6,
+    15.2
+   ]
+  },
+  {
+   "id": "s4",
+   "room": "single-4",
+   "at": [
+    14.6,
+    15.2
+   ]
+  },
+  {
+   "id": "s5",
+   "room": "single-5",
+   "at": [
+    18.6,
+    15.2
+   ]
+  },
+  {
+   "id": "s6",
+   "room": "single-6",
+   "at": [
+    22.6,
+    15.2
+   ]
+  }
+ ],
+ "patients": [
+  {
+   "name": "Mrs Kowalski",
+   "needs": "delirium",
+   "bed": "a1"
+  },
+  {
+   "name": "Mr Tran",
+   "needs": "postop",
+   "bed": "a2"
+  },
+  {
+   "name": "Ms Okafor",
+   "needs": "general",
+   "bed": "a3"
+  },
+  {
+   "name": "Mr Byrne",
+   "needs": "postop",
+   "bed": "a4"
+  },
+  {
+   "name": "Mrs Haddad",
+   "needs": "postop",
+   "bed": "b1"
+  },
+  {
+   "name": "Mr Lindqvist",
+   "needs": "light",
+   "bed": "b2"
+  },
+  {
+   "name": "Ms Romero",
+   "needs": "general",
+   "bed": "b3"
+  },
+  {
+   "name": "Mr Patel",
+   "needs": "postop",
+   "bed": "b4"
+  },
+  {
+   "name": "Mrs Nguyen",
+   "needs": "general",
+   "bed": "c1"
+  },
+  {
+   "name": "Mr O'Neill",
+   "needs": "postop",
+   "bed": "c2"
+  },
+  {
+   "name": "Mrs Chen",
+   "needs": "palliative",
+   "bed": "s1"
+  },
+  {
+   "name": "Mr Ahmadi",
+   "needs": "delirium",
+   "bed": "s2"
+  },
+  {
+   "name": "Ms Walker",
+   "needs": "general",
+   "bed": "s3"
+  },
+  {
+   "name": "Mr Santos",
+   "needs": "light",
+   "bed": "s4"
+  },
+  {
+   "name": "Mrs Ivanova",
+   "needs": "postop",
+   "bed": "s5"
+  },
+  {
+   "name": "Mr Moana",
+   "needs": "delirium",
+   "bed": "s6"
+  }
+ ],
+ "sources": [
+  {
+   "id": "station-talk",
+   "name": "Talk at the nurses' station",
+   "kind": "talk",
+   "room": "corridor",
+   "at": [
+    20.5,
+    10.2
+   ],
+   "level": 66,
+   "perNight": 16
+  },
+  {
+   "id": "station-phone",
+   "name": "Station phone",
+   "kind": "phone",
+   "room": "corridor",
+   "at": [
+    21,
+    9.6
+   ],
+   "level": 74,
+   "perNight": 5
+  },
+  {
+   "id": "call-bell",
+   "name": "Call bell annunciator",
+   "kind": "alarm",
+   "room": "corridor",
+   "at": [
+    19.5,
+    9.6
+   ],
+   "level": 72,
+   "perNight": 10
+  },
+  {
+   "id": "bins",
+   "name": "Bin lids",
+   "kind": "impact",
+   "room": "corridor",
+   "at": [
+    11,
+    10.6
+   ],
+   "level": 82,
+   "perNight": 8
+  },
+  {
+   "id": "trolley",
+   "name": "Drug-round trolley",
+   "kind": "trolley",
+   "room": "corridor",
+   "at": [
+    6,
+    10.2
+   ],
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "sluice-clatter",
+   "name": "Sluice: pans and machine",
+   "kind": "impact",
+   "room": "sluice",
+   "at": [
+    27,
+    14
+   ],
+   "level": 86,
+   "perNight": 6
+  },
+  {
+   "id": "ice",
+   "name": "Ice machine",
+   "kind": "impact",
+   "room": "kitchen",
+   "at": [
+    34,
+    15
+   ],
+   "level": 78,
+   "perNight": 3
+  },
+  {
+   "id": "pump-a2",
+   "name": "Pump alarm, bed A2",
+   "kind": "alarm",
+   "bed": "a2",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-b1",
+   "name": "Pump alarm, bed B1",
+   "kind": "alarm",
+   "bed": "b1",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-b2",
+   "name": "Pump alarm, bed B2",
+   "kind": "alarm",
+   "bed": "b2",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-b4",
+   "name": "Pump alarm, bed B4",
+   "kind": "alarm",
+   "bed": "b4",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-c2",
+   "name": "Pump alarm, bed C2",
+   "kind": "alarm",
+   "bed": "c2",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-s1",
+   "name": "Pump alarm, bed S1",
+   "kind": "alarm",
+   "bed": "s1",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "pump-s4",
+   "name": "Pump alarm, bed S4",
+   "kind": "alarm",
+   "bed": "s4",
+   "level": 72,
+   "perNight": 2
+  },
+  {
+   "id": "checks-a",
+   "name": "Night checks, Bay A",
+   "kind": "talk",
+   "room": "bay-a",
+   "at": [
+    4.5,
+    4.5
+   ],
+   "level": 60,
+   "perNight": 5
+  },
+  {
+   "id": "checks-b",
+   "name": "Night checks, Bay B",
+   "kind": "talk",
+   "room": "bay-b",
+   "at": [
+    13.5,
+    4.5
+   ],
+   "level": 60,
+   "perNight": 5
+  },
+  {
+   "id": "checks-c",
+   "name": "Night checks, Bay C",
+   "kind": "talk",
+   "room": "bay-c",
+   "at": [
+    22.5,
+    4.5
+   ],
+   "level": 60,
+   "perNight": 5
+  }
+ ],
+ "options": [
+  {
+   "id": "tiles-a",
+   "name": "Acoustic ceiling tiles in Bay A",
+   "cost": 6500,
+   "effects": [
+    {
+     "ceiling": "bay-a"
+    }
+   ]
+  },
+  {
+   "id": "tiles-b",
+   "name": "Acoustic ceiling tiles in Bay B",
+   "cost": 6500,
+   "effects": [
+    {
+     "ceiling": "bay-b"
+    }
+   ]
+  },
+  {
+   "id": "tiles-c",
+   "name": "Acoustic ceiling tiles in Bay C",
+   "cost": 6500,
+   "effects": [
+    {
+     "ceiling": "bay-c"
+    }
+   ]
+  },
+  {
+   "id": "tiles-corridor",
+   "name": "Acoustic ceiling tiles in the corridor",
+   "cost": 7000,
+   "effects": [
+    {
+     "ceiling": "corridor"
+    }
+   ]
+  },
+  {
+   "id": "bay-doors",
+   "name": "Quiet closers on bay doors, shut at night",
+   "cost": 1800,
+   "effects": [
+    {
+     "close": "bay-a"
+    },
+    {
+     "close": "bay-b"
+    },
+    {
+     "close": "bay-c"
+    }
+   ]
+  },
+  {
+   "id": "single-doors",
+   "name": "Single-room doors closed at night",
+   "cost": 0,
+   "effects": [
+    {
+     "close": "single-1"
+    },
+    {
+     "close": "single-2"
+    },
+    {
+     "close": "single-3"
+    },
+    {
+     "close": "single-4"
+    },
+    {
+     "close": "single-5"
+    },
+    {
+     "close": "single-6"
+    }
+   ]
+  },
+  {
+   "id": "soft-bins",
+   "name": "Soft-close bin lids",
+   "cost": 600,
+   "effects": [
+    {
+     "quieter": "bins",
+     "by": 15
+    }
+   ]
+  },
+  {
+   "id": "sluice-door",
+   "name": "Self-closing sluice door",
+   "cost": 900,
+   "effects": [
+    {
+     "close": "sluice"
+    }
+   ]
+  },
+  {
+   "id": "pagers",
+   "name": "Alarms and call bells to nurses' pagers",
+   "cost": 12000,
+   "effects": [
+    {
+     "quieterKind": "alarm",
+     "by": 15
+    }
+   ]
+  },
+  {
+   "id": "quiet-phone",
+   "name": "Station phone on light and low ring at night",
+   "cost": 0,
+   "effects": [
+    {
+     "quieter": "station-phone",
+     "by": 20
+    }
+   ]
+  },
+  {
+   "id": "handover-end",
+   "name": "Night handover at the far end of the corridor",
+   "cost": 0,
+   "group": "handover",
+   "effects": [
+    {
+     "move": "station-talk",
+     "to": [
+      35.5,
+      10.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "handover-start",
+   "name": "Night handover at the near end of the corridor",
+   "cost": 0,
+   "group": "handover",
+   "effects": [
+    {
+     "move": "station-talk",
+     "to": [
+      0.5,
+      10.2
+     ]
+    }
+   ]
+  },
+  {
+   "id": "castors",
+   "name": "Quiet castors on the drug trolley",
+   "cost": 400,
+   "effects": [
+    {
+     "quieter": "trolley",
+     "by": 8
+    }
+   ]
+  }
+ ]
+}
