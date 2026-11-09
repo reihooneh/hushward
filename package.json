@@ -1,0 +1,22 @@
+{
+  "name": "hushward",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Models how night-time sounds travel through a hospital ward, predicts how often each patient is woken, and finds the best mix of beds, quiet changes and budget to protect sleep",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "asbuild": "asc assembly/index.ts -o site/assets/hushward.wasm -O3 --runtime stub --use abort=assembly/index/abort",
+    "build": "npm run asbuild && node scripts/build.mjs",
+    "test": "node --test --test-concurrency=1 tests/engine/*.test.mjs",
+    "test:web": "node --test --test-concurrency=1 tests/web/*.test.mjs",
+    "serve": "node scripts/serve.mjs"
+  },
+  "devDependencies": {
+    "@fontsource-variable/fraunces": "5.2.8",
+    "@fontsource-variable/public-sans": "5.2.7",
+    "assemblyscript": "0.28.9",
+    "playwright": "1.63.0",
+    "three": "0.186.1"
+  }
+}
